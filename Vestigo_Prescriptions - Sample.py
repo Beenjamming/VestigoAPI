@@ -26,7 +26,7 @@ df = pd.read_json(rx.text)
 t = datetime.today()
 try:
     df['InsertDTTM'] = t
-    df.to_sql('Prescriptions', con=PARS,schema='Pharmacy.Vestigo', index=False, if_exists='append')  
+    df.to_sql('Prescriptions', con=PARS,schema='Pharmacy.Vestigo', index=False, if_exists='append')  #Update with db name, schema, and table name
 except:
     import smtplib 
     from email.message import EmailMessage
@@ -45,7 +45,7 @@ except:
     p = MIMEBase('application', 'octet-stream')
     msg.attach(p)
     text = msg.as_string()
-    host = 'smtp.ucsf.edu'
+    host = 'insertSMTPHostNameHere' #update with server hostname
     port = 25
     server = smtplib.SMTP(host, port=port)
     server.sendmail(fromaddr,toaddr,text)
