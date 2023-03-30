@@ -3,8 +3,8 @@ import json
 import pandas as pd
 from sqlalchemy import create_engine
 PARS = create_engine(f'''mssql+pyodbc://UCSFMC\REDACTED_USER@Pharmacy''')
-ClientID = "REDACTED_CLIENT_ID"
-ClientSecret = "REDACTED_CLIENT_SECRET"
+ClientID = ""
+ClientSecret = ""
 url = "https://api.vestigo.biz/api/oauth2/token"
 r = requests.post(url, data = {'grant_type':'client_credentials','client_id':ClientID,'client_secret':ClientSecret})
 access_token = r.json()['access_token']
